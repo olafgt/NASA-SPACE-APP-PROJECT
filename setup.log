@@ -1,0 +1,87 @@
+﻿**********************
+Inicio de la transcripción de Windows PowerShell
+Hora de inicio: 20261115154734
+Nombre de usuario: OSVALDO\Leroy
+Usuario RunAs: OSVALDO\Leroy
+Nombre de la configuración: 
+Máquina: OSVALDO (Microsoft Windows NT 10.0.26300.0)
+Aplicación host: powershell -NoProfile -ExecutionPolicy Bypass -File C:\Users\Leroy\OneDrive\Desktop\astro-telemetry\setup.ps1
+Id. de proceso: 15656
+PSVersion: 5.1.26100.9818
+PSEdition: Desktop
+PSCompatibleVersions: 1.0, 2.0, 3.0, 4.0, 5.0, 5.1.26100.9818
+BuildVersion: 10.0.26100.9818
+CLRVersion: 4.0.30319.42000
+WSManStackVersion: 3.0
+PSRemotingProtocolVersion: 2.3
+SerializationVersion: 1.1.0.1
+**********************
+
+Astro-Telemetry setup  (role: both)
+------------------------------------------------------------
+  [OK]
+Project files
+C:\Users\Leroy\OneDrive\Desktop\astro-telemetry
+  [OK]
+Windows
+build 26300
+  [OK]
+Bluetooth radio
+Intel(R) Wireless Bluetooth(R)
+  [OK]
+winget
+available
+  [OK]
+VS C++ Build Tools
+found
+  [OK]
+Rust (MSVC)
+rustc 1.100.0 (0ef1bc386 2026-11-09)
+  [OK]
+Python
+Python 3.12.10 via 'python '
+  [OK]
+Internet (crates.io)
+reachable
+  [OK]
+analysis engine self-test
+core + 19 hazard features passed
+
+Building (first build downloads and compiles crates: several minutes) ...
+  > cargo test --release -p telemetry-protocol -p bio-chip-sim -p ground-control
+
+running 11 tests
+test extended::tests::co2_event_and_hypoxia_move_cabin_gas ... ok
+test physiology::tests::baseline_is_nominal ... ok
+test extended::tests::infection_raises_micro_crp_and_cuts_lymphocytes ... ok
+test extended::tests::dose_accumulates_in_mission_time ... ok
+test extended::tests::workload_surge_eats_sleep_and_mood ... ok
+test extended::tests::comms_outage_isolates_and_silence_delays_reports ... FAILED
+test physiology::tests::tachycardia_reaches_alarm_range ... ok
+test extended::tests::nominal_values_are_plausible ... ok
+test extended::tests::fluid_shift_settles ... ok
+test extended::tests::poor_nutrition_cuts_intake_and_vitamin_d_and_raises_bone_marker ... ok
+test extended::tests::skipping_exercise_accelerates_bone_and_muscle_loss ... ok
+
+failures:
+
+---- extended::tests::comms_outage_isolates_and_silence_delays_reports stdout ----
+
+thread 'extended::tests::comms_outage_isolates_and_silence_delays_reports' (5952) panicked at bio-chip-sim\src\extended.rs:506:9:
+assertion failed: ok.selfcheck_pct > 85.0 && ok.report_delay_h < 4.0 && ok.mech_load_pct > 85.0
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+
+
+failures:
+    extended::tests::comms_outage_isolates_and_silence_delays_reports
+
+test result: FAILED. 10 passed; 1 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.01s
+
+
+------------------------------------------------------------
+  problem: cargo test failed - see output above / setup.log
+  (full log: C:\Users\Leroy\OneDrive\Desktop\astro-telemetry\setup.log)
+**********************
+Fin de la transcripción de Windows PowerShell
+Hora de finalización: 20261115154815
+**********************

@@ -1,0 +1,29 @@
+# ---------------------------------------------------------------------------
+# Astro-Telemetry workspace
+#
+#   telemetry-protocol  -> shared UUIDs + BLE frame codec (used by both apps)
+#   bio-chip-sim        -> COMPUTER 1: astronaut implant simulator (BLE peripheral / TCP)
+#   ground-control      -> COMPUTER 2: Ground Control dashboard (BLE central + Python analysis)
+#
+# Copy the whole folder to both PCs. Build only what each machine needs:
+#   Computer 1:  cargo run --release -p bio-chip-sim  -- --mode ble
+#   Computer 2:  cargo run --release -p ground-control -- --source ble
+# ---------------------------------------------------------------------------
+[workspace]
+resolver = "2"
+members = ["telemetry-protocol", "bio-chip-sim", "ground-control"]
+
+[workspace.package]
+edition = "2021"
+rust-version = "1.80"
+version = "0.1.0"
+license = "MIT"
+
+[profile.release]
+opt-level = 3
+lto = "thin"
+codegen-units = 4
+
+# Keep debug builds snappy for the UI (egui is slow-ish fully unoptimised).
+[profile.dev.package."*"]
+opt-level = 2

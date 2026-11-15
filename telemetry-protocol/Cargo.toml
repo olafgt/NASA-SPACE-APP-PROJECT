@@ -1,0 +1,11 @@
+[package]
+name = "telemetry-protocol"
+description = "Shared BLE UUIDs and the compact binary telemetry frame used between the bio-chip and Ground Control"
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+
+[dependencies]
+serde = { version = "1.0.210", features = ["derive"] }
+uuid = "1.10.0"
